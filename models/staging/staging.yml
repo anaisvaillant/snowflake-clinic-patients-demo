@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_patients
+    description: "This model cleans up the source data on patients. It removes the numbers appended to the end of the first name and last name."
+    columns:
+      - name: patient_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_encounters
+    columns:
+      - name: patient_id
+        tests:
+          - relationships:
+              to: ref('stg_patients')
+              field: patient_id
+
+  - name: stg_conditions
+    columns:
+      - name: start_date
+        description: "This is the date when the condition was first diagnosed."
+      - name: end_date
+        description: "This is the date when the condition was resolved. If this is null that means that the condition is still ongoing."
+      - name: patient_id
+        description: "This is the unique identifier for the patient."
+      - name: encounter_id
+        description: "This is the unique identifier for the encounter."
+      - name: condition_code
+        description: "This is the diagnosis code."
+      - name: condition_description
+        description: "This is the text description of the diagnosis."
+            

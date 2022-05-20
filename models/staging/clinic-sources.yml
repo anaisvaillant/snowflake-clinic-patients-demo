@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: clinic
+    database: cutini_demo
+    schema: synthea
+    tables:
+      - name: patients
+      - name: encounters
+      - name: conditions
