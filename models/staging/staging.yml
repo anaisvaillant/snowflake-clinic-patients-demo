@@ -10,6 +10,7 @@ models:
           - not_null
 
   - name: stg_encounters
+    description: "This model filters out records from the source that do not have matching condition information."
     columns:
       - name: patient_id
         tests:
