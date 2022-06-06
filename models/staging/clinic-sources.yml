@@ -9,3 +9,4 @@ sources:
       - name: encounters
       - name: conditions
       - name: procedures
+      - name: claims
