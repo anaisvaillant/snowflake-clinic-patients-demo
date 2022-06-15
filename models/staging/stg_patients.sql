@@ -12,4 +12,5 @@ select
 , race
 , ethnicity
 , gender
+, convert_timezone('America/Denver', current_timestamp) as last_updated_dts
 from {{ source('clinic', 'patients') }}

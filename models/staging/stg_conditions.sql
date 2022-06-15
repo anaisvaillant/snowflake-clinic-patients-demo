@@ -5,4 +5,5 @@ select
 , encounter as encounter_id
 , code as condition_code
 , "DESCRIPTION" as condition_description
+, convert_timezone('America/Denver', current_timestamp) as last_updated_dts
 from {{ source('clinic', 'conditions') }}

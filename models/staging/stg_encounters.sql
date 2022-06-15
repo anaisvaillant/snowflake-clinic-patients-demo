@@ -17,5 +17,6 @@ select
 , payer_coverage
 , reasoncode as reason_code
 , reasondescription as reason_description
+, convert_timezone('America/Denver', current_timestamp) as last_updated_dts
 from {{ source('clinic', 'encounters') }} as enc
 join {{ ref('stg_conditions') }} as con on enc.id = con.encounter_id
