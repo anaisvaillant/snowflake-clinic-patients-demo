@@ -1,3 +1,5 @@
+-- This needs to be an incremental load because it is a large table
+
 {{
   config(
     materialized='incremental'
