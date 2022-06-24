@@ -1,5 +1,5 @@
 select distinct
-  HASH(patient, encounter) as procedure_id
+  {{ dbt_utils.surrogate_key(['patient', 'encounter']) }} as procedure_id
 , "START" as start_timestamp
 , "STOP" as end_timestamp
 , patient as patient_id

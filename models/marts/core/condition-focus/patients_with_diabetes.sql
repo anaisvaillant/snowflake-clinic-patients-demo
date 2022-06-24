@@ -1,4 +1,4 @@
-select 
+select distinct
   pat.*
 from {{ ref('stg_patients') }} as pat
 join {{ ref('stg_conditions') }} as con
