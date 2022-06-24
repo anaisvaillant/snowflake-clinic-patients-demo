@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized='incremental'
+  )
+}}
+
 select 
   id as claim_id
 , patientid as patient_id
@@ -16,5 +22,11 @@ select
 , supervisingproviderid as supervising_provider_id
 , status1 as claim_status
 , lastbilleddate as last_billed_date
-, convert_timezone('America/Denver', current_timestamp) as last_updated_dts
+, last_updated_dts
 from {{ source('clinic', 'claims') }}
+
+{% if is_incremental() %}
+
+  where claim_id not in (select claim_id from {{ this }})
+
+{% endif %}

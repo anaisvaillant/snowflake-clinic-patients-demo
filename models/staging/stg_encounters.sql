@@ -1,7 +1,4 @@
-/* We only want to pull encounters that have matches with the conditions data that we have. 
-So it's important to join here to the stg_conditions model in order to filter out extra data. */
-
-select 
+select distinct
   id as encounter_id
 , "START" as start_timestamp
 , "STOP" as end_timestamp
@@ -17,6 +14,4 @@ select
 , payer_coverage
 , reasoncode as reason_code
 , reasondescription as reason_description
-, convert_timezone('America/Denver', current_timestamp) as last_updated_dts
-from {{ source('clinic', 'encounters') }} as enc
-join {{ ref('stg_conditions') }} as con on enc.id = con.encounter_id
+from {{ source('clinic', 'encounters') }}

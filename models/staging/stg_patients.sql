@@ -1,4 +1,4 @@
-select
+select distinct
   id as patient_id
 , birthdate as birth_date
 , deathdate as death_date
@@ -12,5 +12,4 @@ select
 , race
 , ethnicity
 , gender
-, convert_timezone('America/Denver', current_timestamp) as last_updated_dts
 from {{ source('clinic', 'patients') }}
