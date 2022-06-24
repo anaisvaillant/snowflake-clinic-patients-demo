@@ -1,4 +1,4 @@
-select 
+select distinct
   "START" as start_date
 , "STOP" as end_date
 , patient as patient_id

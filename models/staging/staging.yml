@@ -9,9 +9,20 @@ models:
           - unique
           - not_null
 
-  - name: stg_encounters
-    description: "This model filters out records from the source that do not have matching condition information."
+  - name: stg_claims
     columns:
+      - name: claim_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_encounters
+    description: "This model is an incremental model that keeps track of all patients' encounters."
+    columns:
+      - name: encounter_id
+        tests: 
+          - unique
+          - not_null
       - name: patient_id
         tests:
           - relationships:
@@ -32,4 +43,11 @@ models:
         description: "This is the diagnosis code."
       - name: condition_description
         description: "This is the text description of the diagnosis."
+
+  - name: stg_procedures
+    columns:
+      - name: procedure_id
+        tests:
+          - unique
+          - not_null
             
