@@ -1,3 +1,9 @@
+{{
+   config(
+      store_failures = true
+   )
+}}
+
 select *
 from {{ ref('high_cost_patients_with_conditions') }}
 where condition_description is null 

@@ -11,10 +11,10 @@ models:
 
   - name: stg_claims
     columns:
-      - name: claim_id
+      - name: claim_status
         tests:
-          - unique
-          - not_null
+          - accepted_values:
+              values: ['PENDING', 'BILLED', 'CLOSED']
 
   - name: stg_encounters
     description: "This model is an incremental model that keeps track of all patients' encounters."
