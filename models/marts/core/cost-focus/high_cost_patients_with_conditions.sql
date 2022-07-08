@@ -10,4 +10,3 @@ join {{ ref('most_recent_encounter') }} as enc
   on pat.patient_id = enc.patient_id
 left join {{ ref('stg_conditions') }} as con
   on enc.most_recent_encounter = con.encounter_id
- and con.condition_description = 'Diabetes'
