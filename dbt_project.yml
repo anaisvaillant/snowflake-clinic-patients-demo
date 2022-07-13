@@ -22,8 +22,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   snowflake_clinic_patients_demo:
-    staging:
-      +materialized: view
+    marts:
+      +materialized: "{{'view' if target.name == 'prod' else 'table'}}"
 
 vars:
   use_common_masking_policy_db: "True"
