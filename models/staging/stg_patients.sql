@@ -1,4 +1,12 @@
-select distinct
+{{
+  config(
+    materialized='incremental',
+    unique_key='patient_id',
+    incremental_strategy='delete+insert'
+  )
+}}
+
+select
   id as patient_id
 , birthdate as birth_date
 , deathdate as death_date
@@ -12,4 +20,9 @@ select distinct
 , race
 , ethnicity
 , gender
+, last_updated_dts
 from {{ source('clinic', 'patients') }}
+
+{% if is_incremental() %}
+  where last_updated_dts >= (select max(last_updated_dts) from {{ this }})
+{% endif %}

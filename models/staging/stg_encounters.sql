@@ -1,5 +1,13 @@
-select distinct
-  {{ dbt_utils.surrogate_key(['id', '"START"', 'organization']) }} as encounter_id
+{{
+  config(
+    materialized='incremental',
+    unique_key='encounter_id',
+    incremental_strategy='delete+insert'
+  )
+}}
+
+select
+  id as encounter_id
 , "START" as start_timestamp
 , "STOP" as end_timestamp
 , patient as patient_id
@@ -14,4 +22,9 @@ select distinct
 , payer_coverage
 , reasoncode as reason_code
 , reasondescription as reason_description
+, last_updated_dts
 from {{ source('clinic', 'encounters') }}
+
+{% if is_incremental() %}
+  where last_updated_dts >= (select max(last_updated_dts) from {{ this }})
+{% endif %}
