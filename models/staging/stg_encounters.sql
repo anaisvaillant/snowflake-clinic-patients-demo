@@ -1,5 +1,5 @@
 select distinct
-  id as encounter_id
+  {{ dbt_utils.surrogate_key(['id', '"START"', 'organization']) }} as encounter_id
 , "START" as start_timestamp
 , "STOP" as end_timestamp
 , patient as patient_id
