@@ -1,5 +1,5 @@
 select distinct
-  {{ dbt_utils.surrogate_key(['patient', '"START"', '"STOP"', 'encounter', 'code', 'last_updated_dts']) }} as procedure_id
+  {{ dbt_utils.surrogate_key(['patient', '"START"', '"STOP"', 'encounter', 'code', '"DESCRIPTION"', 'base_cost']) }} as procedure_id
 , "START" as start_timestamp
 , "STOP" as end_timestamp
 , patient as patient_id
