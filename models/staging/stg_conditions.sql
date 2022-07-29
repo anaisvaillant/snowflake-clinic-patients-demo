@@ -1,13 +1,13 @@
 {{
   config(
     materialized='incremental',
-    unique_key=['patient_id', 'encounter_id', 'condition_code'],
-    incremental_strategy='delete+insert'
+    unique_key='condition_id'
   )
 }}
 
 select
-  "START" as start_date
+  {{ dbt_utils.surrogate_key(['patient', 'encounter', 'code', '"DESCRIPTION"']) }} as condition_id
+, "START" as start_date
 , "STOP" as end_date
 , patient as patient_id
 , encounter as encounter_id

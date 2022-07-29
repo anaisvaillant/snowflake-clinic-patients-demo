@@ -1,8 +1,7 @@
 {{
   config(
     materialized='incremental',
-    unique_key='patient_id',
-    incremental_strategy='delete+insert'
+    unique_key='patient_id'
   )
 }}
 
