@@ -1,10 +1,10 @@
 {{
   config(
     materialized='incremental',
-    unique_key='claim_id',
-    incremental_strategy='delete+insert'
+    unique_key='claim_id'
   )
 }}
+
 select 
   id as claim_id
 , patientid as patient_id

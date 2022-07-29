@@ -1,8 +1,7 @@
 {{
   config(
     materialized='incremental',
-    unique_key='encounter_id',
-    incremental_strategy='delete+insert'
+    unique_key='encounter_id'
   )
 }}
 
