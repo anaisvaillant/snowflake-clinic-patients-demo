@@ -19,8 +19,7 @@ models:
   - name: stg_encounters
     description: "This model is an incremental model that keeps track of all patients' encounters."
     columns:
-      - name: encounter_sid
-        description: "This is the surrogate key obtained by combining the encounter_id, the start date, and the organization. This is unique whereas the encounter_id is not unique due to the data generation mechanism."
+      - name: encounter_id
         tests: 
           - unique
           - not_null
