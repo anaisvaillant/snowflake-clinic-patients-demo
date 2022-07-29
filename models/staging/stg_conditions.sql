@@ -1,7 +1,6 @@
 {{
   config(
-    materialized='incremental',
-    unique_key='condition_id'
+    materialized='incremental'
   )
 }}
 
@@ -17,5 +16,5 @@ select
 from {{ source('clinic', 'conditions') }}
 
 {% if is_incremental() %}
-  where last_updated_dts >= (select max(last_updated_dts) from {{ this }})
+  where condition_id not in (select condition_id from {{ this }})
 {% endif %}

@@ -1,7 +1,6 @@
 {{
   config(
-    materialized='incremental',
-    unique_key='procedure_id'
+    materialized='incremental'
   )
 }}
 
@@ -20,5 +19,5 @@ select
 from {{ source('clinic', 'procedures') }}
 
 {% if is_incremental() %}
-  where last_updated_dts >= (select max(last_updated_dts) from {{ this }})
+  where procedure_id not in (select procedure_id from {{ this }})
 {% endif %}
