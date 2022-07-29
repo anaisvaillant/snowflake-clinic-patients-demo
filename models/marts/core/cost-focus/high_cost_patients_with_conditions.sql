@@ -8,6 +8,5 @@ select distinct
 from {{ ref('high_cost_patients') }} as pat
 join {{ ref('most_recent_encounter') }} as mre
   on pat.patient_id = mre.patient_id
-left join {{ ref('stg_conditions') }} as con
-  on mre.most_recent_encounter_id = con.encounter_id
+
 
