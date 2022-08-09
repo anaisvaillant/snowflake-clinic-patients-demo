@@ -29,3 +29,6 @@ vars:
   use_common_masking_policy_db: "True"
   common_masking_policy_db: "cutini_demo"
   custom_materializations_map: '{ "custom_incremental": "table" }'
+
+tests:
+  +severity: warn
