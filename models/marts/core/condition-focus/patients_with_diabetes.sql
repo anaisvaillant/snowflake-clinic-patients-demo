@@ -1,3 +1,9 @@
+{{
+  config(
+    tags=["contains_phi"]
+  )
+}}
+
 select distinct
   pat.*
 from {{ ref('stg_patients') }} as pat
