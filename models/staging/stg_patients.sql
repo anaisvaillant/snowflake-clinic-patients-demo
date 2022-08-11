@@ -1,4 +1,4 @@
-select
+SELECT
 id as patient_id,
 birthdate as birth_date,
 deathdate as death_date,
@@ -10,5 +10,6 @@ regexp_substr(last, '[A-Za-z]*') as last_name,
 marital as marital_status,
 race,
 ethnicity,
-gender
-from {{ source('clinic', 'patients') }}
+gender,
+current_timestamp as last_updated_dts
+FROM {{ source('clinic', 'patients') }}
