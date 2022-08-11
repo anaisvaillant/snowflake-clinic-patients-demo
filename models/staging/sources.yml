@@ -6,7 +6,8 @@ sources:
     schema: synthea
     freshness:
       warn_after: {count: 24, period: hour}
-    loaded_at_field: last_updated_dts 
+      error_after: {count: 48, period: hour}
+    loaded_at_field: etl_loaded_at_dts
     tables:
       - name: encounters
       - name: conditions
