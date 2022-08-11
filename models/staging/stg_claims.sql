@@ -1,10 +1,11 @@
 {{
   config(
-    materialized='incremental'
+    materialized='incremental',
+    unique_key='claim_id'
   )
 }}
 
-select 
+SELECT 
 id as claim_id,
 patientid as patient_id,
 providerid as provider_id,
@@ -23,8 +24,8 @@ supervisingproviderid as supervising_provider_id,
 status1 as claim_status,
 lastbilleddate as last_billed_date,
 current_date as last_updated_date
-from {{ source('clinic', 'claims') }}
+FROM {{ source('clinic', 'claims') }}
 
 {% if is_incremental() %}
-  where claim_id not in (select claim_id from {{ this }})
+  where etl_loaded_at_dts > (select max(last_updated_date) from {{ this }})
 {% endif %}

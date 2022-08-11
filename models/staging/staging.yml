@@ -11,6 +11,10 @@ models:
 
   - name: stg_claims
     columns:
+      - name: claim_id
+        tests:
+          - unique
+          - not_null
       - name: claim_status
         tests:
           - accepted_values:
@@ -31,6 +35,10 @@ models:
 
   - name: stg_conditions
     columns:
+      - name: condition_id
+        tests:
+          - unique
+          - not_null
       - name: start_date
         description: "This is the date when the condition was first diagnosed."
       - name: end_date
@@ -49,5 +57,4 @@ models:
       - name: procedure_id
         tests:
           - unique
-          - not_null
-            
+          - not_null    
