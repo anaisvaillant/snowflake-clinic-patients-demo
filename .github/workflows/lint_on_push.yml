@@ -21,4 +21,4 @@ jobs:
       - name: Install SQLFluff
         run: "pip install sqlfluff==0.13.1"
       - name: Lint project
-        run: "sqlfluff lint models --dialect snowflake --rules L019,L020,L021,L022"
+        run: "sqlfluff lint models --dialect snowflake --rules L001,L019,L020,L021,L022"
