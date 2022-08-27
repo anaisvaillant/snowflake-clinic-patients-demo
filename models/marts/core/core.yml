@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: patients_with_hypertension
+    description: "This model describes the population of patients who have been diagnosed with hypertension."
+    columns:
+      - name: patient_id
+        tests:
+          - unique
+          - not_null
+
