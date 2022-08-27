@@ -21,4 +21,8 @@ jobs:
       - name: Install SQLFluff
         run: "pip install sqlfluff==0.13.1"
       - name: Lint project
-        run: "sqlfluff lint models --dialect snowflake --rules L019,L020,L021,L022"
+        run: "sqlfluff lint models --dialect snowflake --rules L001,L019,L020,L029"
+        # L001 rules against unnecessary trailing whitespace
+        # L019 rules against leading commas
+        # L020 rules against resuing table aliases
+        # L029 rules against using keywords as identifiers
