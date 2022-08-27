@@ -1,0 +1,12 @@
+snowflake_clinic_patients_demo:
+  target: ci
+  outputs:
+    ci:
+      type: snowflake
+      host: zna84829
+      user: matt_c
+      password: "{{ env_var('DB_PASSWORD') }}"
+      port: 5432
+      dbname: cutini_demo
+      schema: ci
+      threads: 4
