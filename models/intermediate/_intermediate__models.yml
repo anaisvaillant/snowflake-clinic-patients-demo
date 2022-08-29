@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: high_cost_patients
+    description: "This model describes the subset of the patient population that is highest cost."
+    columns:
+      - name: patient_id
+        tests:
+          - unique
+          - not_null
+  - name: most_recent_encounter
+    description: "This model describes the most recent encounter that each patient had, and the date of the encounter."
