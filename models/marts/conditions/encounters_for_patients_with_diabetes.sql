@@ -6,4 +6,4 @@ select
    ) }}
 from {{ ref('stg_encounters') }} 
 join {{ ref('patients_with_diabetes') }} using (patient_id)
-group by patient_id 
+group by patient_id
