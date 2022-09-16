@@ -8,6 +8,9 @@ models:
         tests:
           - unique
           - not_null
+      - name: gender
+        tests:
+          - all_male_patients
 
   - name: stg_claims
     columns:
@@ -57,4 +60,3 @@ models:
       - name: procedure_id
         tests:
           - unique
-          - not_null    

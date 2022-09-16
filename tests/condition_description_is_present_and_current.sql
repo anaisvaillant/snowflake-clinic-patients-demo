@@ -1,6 +1,7 @@
 {{
    config(
-      store_failures = true
+      store_failures = true,
+      alias = 'my_most_important_test'
    )
 }}
 
