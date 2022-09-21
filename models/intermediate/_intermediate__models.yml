@@ -12,3 +12,9 @@ models:
   - name: most_recent_encounter
     description: "This model describes the most recent encounter that each patient had, and the date of the encounter."
 
+  - name: patients_in_SLC
+    columns: city_name
+      - tests: 
+        - accepted_values:
+            values: ['PENDING', 'BILLED', 'CLOSED']
+
