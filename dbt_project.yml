@@ -32,3 +32,6 @@ vars:
 
 tests:
   +severity: warn
+
+seeds:
+  +schema: reference_data

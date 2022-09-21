@@ -8,5 +8,7 @@ models:
         tests:
           - unique
           - not_null
+
   - name: most_recent_encounter
     description: "This model describes the most recent encounter that each patient had, and the date of the encounter."
+
