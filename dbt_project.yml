@@ -25,6 +25,16 @@ models:
     marts:
       +materialized: "{{'view' if target.name == 'prod' else 'table'}}"
 
+    client_abc:
+      database: '{{ env_var("DBT_DYNAMIC_DATABASE_CLIENT_ABC") }}'
+      +docs: 
+        node_color: "#FB6962"
+
+    client_xyz:
+      database: '{{ env_var("DBT_DYNAMIC_DATABASE_CLIENT_XYZ") }}'
+      +docs:
+        node_color: "#F6AE3E"
+
 vars:
   use_common_masking_policy_db: "True"
   common_masking_policy_db: "cutini_demo"
