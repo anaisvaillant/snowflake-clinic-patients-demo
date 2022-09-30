@@ -20,6 +20,15 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+vars:
+  use_common_masking_policy_db: "True"
+
+  common_masking_policy_db: "cutini_demo"
+
+  custom_materializations_map: '{ "custom_incremental": "table" }'
+  
+  client_number: "18"
+
 models:
   snowflake_clinic_patients_demo:
     marts:
@@ -27,18 +36,9 @@ models:
 
     client_abc:
       database: '{{ env_var("DBT_DYNAMIC_DATABASE_CLIENT_ABC") }}'
-      +docs: 
-        node_color: "#FB6962"
 
     client_xyz:
       database: '{{ env_var("DBT_DYNAMIC_DATABASE_CLIENT_XYZ") }}'
-      +docs:
-        node_color: "#F6AE3E"
-
-vars:
-  use_common_masking_policy_db: "True"
-  common_masking_policy_db: "cutini_demo"
-  custom_materializations_map: '{ "custom_incremental": "table" }'
 
 tests:
   +severity: warn

@@ -6,6 +6,7 @@ select
   z.countynbr as county_number,
   z.name as city_name
 from {{ ref('stg_patients') }} as p
-left join {{ ref('Utah_ZIP_Code_Areas') }} as z
+join {{ ref('Utah_ZIP_Code_Areas') }} as z
   on p.zip = z.zip5
+ and z.countynbr IS NOT NULL
   
