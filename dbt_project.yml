@@ -34,6 +34,12 @@ models:
     marts:
       +materialized: "{{'view' if target.name == 'prod' else 'table'}}"
 
+      conditions: 
+        +tags: "daily"
+
+      costs:
+        +tags: "weekly"
+
     client_abc:
       database: '{{ env_var("DBT_DYNAMIC_DATABASE_CLIENT_ABC") }}'
 
