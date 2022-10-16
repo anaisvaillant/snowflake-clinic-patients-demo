@@ -11,6 +11,9 @@ marital as marital_status,
 race,
 ethnicity,
 gender,
+address,
 zip,
+lat,
+lon,
 current_timestamp as last_updated_dts
 FROM {{ source('clinic', 'patients') }}

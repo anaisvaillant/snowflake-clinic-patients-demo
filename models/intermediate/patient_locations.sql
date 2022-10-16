@@ -2,7 +2,10 @@ select
   p.patient_id,
   p.first_name,
   p.last_name,
+  p.address,
   p.zip,
+  p.lat,
+  p.lon,
   z.countynbr as county_number,
   z.name as city_name
 from {{ ref('stg_patients') }} as p
