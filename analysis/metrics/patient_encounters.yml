@@ -6,8 +6,8 @@ metrics:
     model: ref('stg_encounters')
     description: 'The count of patient encounters in a given timeframe'
 
-    type: count
-    sql: encounter_id
+    calculation_method: count
+    expression: encounter_id
 
     timestamp: start_timestamp
     time_grains: [day, week, month, year]

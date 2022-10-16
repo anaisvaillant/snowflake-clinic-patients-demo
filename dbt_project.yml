@@ -41,7 +41,6 @@ models:
         +tags: "weekly"
 
     final:
-      +enabled: "{{ (client_number == 25) | as_bool }}"
 
     client_abc:
       database: '{{ env_var("DBT_DYNAMIC_DATABASE_CLIENT_ABC") }}'
