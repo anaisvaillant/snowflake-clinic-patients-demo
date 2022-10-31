@@ -8,4 +8,4 @@ select
   lat,
   lon
 from {{ source('clinic',  'organizations') }}
-where id = '46d53b17-836e-37cd-bb47-eb29effa06fc'
+where id = 'ed6b5dd5-a7a7-3b27-a095-8cdfce3c13dc'

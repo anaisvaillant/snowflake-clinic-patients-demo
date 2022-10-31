@@ -1,0 +1,13 @@
+version: 2
+
+metrics:
+  - name: driving_time
+    label: Driving Time
+    model: ref('patients_distances_from_clinics')
+    description: 'The amount of time it takes to drive from the clinic to the home based on the distance between the two'
+
+    calculation_method: expression
+    expression: distance/45
+
+    dimensions:
+      - race
