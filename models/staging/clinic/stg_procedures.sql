@@ -1,5 +1,5 @@
 SELECT
-{{ dbt_utils.surrogate_key(['patient', '"START"', 'encounter', 'code']) }} as procedure_id,
+{{ dbt_utils.generate_surrogate_key(['patient', '"START"', 'encounter', 'code']) }} as procedure_id,
 "START" as start_timestamp,
 "STOP" as end_timestamp,
 patient as patient_id,

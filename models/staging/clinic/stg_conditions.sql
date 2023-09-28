@@ -6,7 +6,7 @@
 }}
 
 SELECT
-{{ dbt_utils.surrogate_key(['patient', 'encounter', 'code', '"DESCRIPTION"']) }} as condition_id,
+{{ dbt_utils.generate_surrogate_key(['patient', 'encounter', 'code', '"DESCRIPTION"']) }} as condition_id,
 "START" as start_date,
 "STOP" as end_date,
 patient as patient_id,

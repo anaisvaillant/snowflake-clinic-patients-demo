@@ -40,14 +40,6 @@ models:
       costs:
         +tags: "weekly"
 
-    final:
-
-    client_abc:
-      database: '{{ env_var("DBT_DYNAMIC_DATABASE_CLIENT_ABC") }}'
-
-    client_xyz:
-      database: '{{ env_var("DBT_DYNAMIC_DATABASE_CLIENT_XYZ") }}'
-
 tests:
   +severity: warn
 
